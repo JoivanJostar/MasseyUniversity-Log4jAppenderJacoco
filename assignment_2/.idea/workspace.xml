@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1ab2944f-defd-4405-ab81-9f7093bb5d97" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2G7GRrQLtST1RjmoajapXXpPnjN" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.MemAppenderTest.testGetSetMaxSize">
+    <configuration name="MemAppenderTest.testGetSetMaxSize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.sdc.a2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.sdc.a2" />
+      <option name="MAIN_CLASS_NAME" value="test.sdc.a2.MemAppenderTest" />
+      <option name="METHOD_NAME" value="testGetSetMaxSize" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StressTest.testLayoutPerformanceWithFileAppenderPatternLayout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.sdc.a2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.sdc.a2" />
+      <option name="MAIN_CLASS_NAME" value="test.sdc.a2.StressTest" />
+      <option name="METHOD_NAME" value="testLayoutPerformanceWithFileAppenderPatternLayout" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StressTest.testLayoutPerformanceWithFileAppenderVelocityLayout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.sdc.a2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.sdc.a2" />
+      <option name="MAIN_CLASS_NAME" value="test.sdc.a2.StressTest" />
+      <option name="METHOD_NAME" value="testLayoutPerformanceWithFileAppenderVelocityLayout" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StressTest.testLayoutPerformanceWithLinkedListMemAppenderPatternLayout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.sdc.a2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.sdc.a2" />
+      <option name="MAIN_CLASS_NAME" value="test.sdc.a2.StressTest" />
+      <option name="METHOD_NAME" value="testLayoutPerformanceWithLinkedListMemAppenderPatternLayout" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StressTest.testLayoutPerformanceWithLinkedListMemAppenderVelocityLayout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="assignment_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.sdc.a2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.sdc.a2" />
+      <option name="MAIN_CLASS_NAME" value="test.sdc.a2.StressTest" />
+      <option name="METHOD_NAME" value="testLayoutPerformanceWithLinkedListMemAppenderVelocityLayout" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.StressTest.testLayoutPerformanceWithLinkedListMemAppenderPatternLayout" />
+      <item itemvalue="JUnit.StressTest.testLayoutPerformanceWithLinkedListMemAppenderVelocityLayout" />
+      <item itemvalue="JUnit.StressTest.testLayoutPerformanceWithFileAppenderVelocityLayout" />
+      <item itemvalue="JUnit.StressTest.testLayoutPerformanceWithFileAppenderPatternLayout" />
+      <item itemvalue="JUnit.MemAppenderTest.testGetSetMaxSize" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MemAppenderTest.testGetSetMaxSize" />
+        <item itemvalue="JUnit.StressTest.testLayoutPerformanceWithFileAppenderPatternLayout" />
+        <item itemvalue="JUnit.StressTest.testLayoutPerformanceWithFileAppenderVelocityLayout" />
+        <item itemvalue="JUnit.StressTest.testLayoutPerformanceWithLinkedListMemAppenderVelocityLayout" />
+        <item itemvalue="JUnit.StressTest.testLayoutPerformanceWithLinkedListMemAppenderPatternLayout" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1ab2944f-defd-4405-ab81-9f7093bb5d97" name="Default Changelist" comment="" />
+      <created>1665732203397</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665732203397</updated>
+      <workItem from="1665732269734" duration="25259000" />
+      <workItem from="1665760879540" duration="2748000" />
+      <workItem from="1665763678228" duration="3961000" />
+      <workItem from="1665850454184" duration="454000" />
+      <workItem from="1665850934214" duration="133000" />
+      <workItem from="1665851116306" duration="3694000" />
+      <workItem from="1665854877959" duration="3437000" />
+      <workItem from="1665885384333" duration="2617000" />
+      <workItem from="1665888796171" duration="9177000" />
+      <workItem from="1665928136480" duration="5000" />
+      <workItem from="1665930160903" duration="932000" />
+      <workItem from="1665931119683" duration="684000" />
+      <workItem from="1665932145609" duration="7521000" />
+      <workItem from="1665939699496" duration="2810000" />
+      <workItem from="1665972022637" duration="14395000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17-sources.jar!/org/apache/log4j/Hierarchy.java</url>
+          <line>269</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17-sources.jar!/org/apache/log4j/helpers/OptionConverter.java</url>
+          <line>336</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17-sources.jar!/org/apache/log4j/PropertyConfigurator.java</url>
+          <line>767</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.17/log4j-1.2.17-sources.jar!/org/apache/log4j/PropertyConfigurator.java</url>
+          <line>784</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sdc/a2/MemAppender.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

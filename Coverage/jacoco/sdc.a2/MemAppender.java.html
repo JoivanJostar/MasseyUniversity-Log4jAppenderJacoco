@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MemAppender.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assignment_2</a> &gt; <a href="index.source.html" class="el_package">sdc.a2</a> &gt; <span class="el_source">MemAppender.java</span></div><h1>MemAppender.java</h1><pre class="source lang-java linenums">package sdc.a2;
+
+import org.apache.commons.collections4.list.UnmodifiableList;
+import org.apache.log4j.AppenderSkeleton;
+import org.apache.log4j.Layout;
+import org.apache.log4j.spi.LoggingEvent;
+
+import javax.management.MBeanServer;
+import javax.management.MalformedObjectNameException;
+import javax.management.ObjectName;
+import java.lang.management.ManagementFactory;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+public class MemAppender extends AppenderSkeleton  implements MemAppenderMBean{
+<span class="fc" id="L17">    private final int DEFAULT_MAX_SIZE=50;</span>
+<span class="fc" id="L18">    private int maxSize=DEFAULT_MAX_SIZE;</span>
+<span class="fc" id="L19">    private long discardedLogCount =0;</span>
+<span class="fc" id="L20">    private static MemAppender appenderInstance=null;</span>
+    private List&lt;LoggingEvent&gt; loggingEventList;
+<span class="fc" id="L22">    private static int ID=0; //MBean ID</span>
+
+
+<span class="fc" id="L25">    private MemAppender(List&lt;LoggingEvent&gt; loggingEventList,Layout layout) {</span>
+<span class="fc" id="L26">        this.loggingEventList = loggingEventList;</span>
+<span class="fc" id="L27">        setLayout(layout);</span>
+<span class="fc" id="L28">        this.maxSize=DEFAULT_MAX_SIZE;</span>
+        try{
+<span class="fc" id="L30">            MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();</span>
+<span class="fc" id="L31">            ObjectName name = new ObjectName(&quot;sdc.a2:type=MemAppender&quot;+ID++);</span>
+<span class="fc" id="L32">            mbs.registerMBean(this, name);</span>
+
+<span class="nc" id="L34">        }catch (Exception e){</span>
+<span class="nc" id="L35">            e.printStackTrace();</span>
+<span class="fc" id="L36">        }</span>
+
+<span class="fc" id="L38">    }</span>
+
+    //for JMX MBean
+    @Override
+    public int getMaxSize() {
+
+<span class="fc" id="L44">        return this.maxSize;</span>
+    }
+
+    @Override
+    public long getDiscardedLogCount(){
+<span class="fc" id="L49">        return this.discardedLogCount;</span>
+    }
+
+    @Override
+    public long getCachedLogSize() {
+<span class="fc" id="L54">        long size=0;</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        for (LoggingEvent loggingEvent : loggingEventList) {</span>
+<span class="fc" id="L56">            size+=((String)(loggingEvent.getMessage())).length();</span>
+<span class="fc" id="L57">        }</span>
+<span class="fc" id="L58">        return size;</span>
+    }
+
+    public void setMaxSize(int maxSize) {
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        if(maxSize&lt;0)</span>
+<span class="fc" id="L63">            this.maxSize=0;</span>
+        else
+<span class="fc" id="L65">            this.maxSize = maxSize;</span>
+<span class="fc" id="L66">    }</span>
+
+    @Override
+    public void setLayout(Layout layout) {
+<span class="fc" id="L70">        this.layout=layout;</span>
+<span class="fc" id="L71">    }</span>
+
+    /**
+     * getInstance with no Layout
+     * @param list
+     * @return
+     */
+    public static  MemAppender getInstance(List&lt;LoggingEvent&gt;list){
+<span class="fc" id="L79">        return getInstance(list,null);</span>
+    }
+
+    /**
+     * getInstance with Layout
+     * @param list
+     * @param layout
+     * @return
+     */
+    public static synchronized MemAppender getInstance(List&lt;LoggingEvent&gt;list,Layout layout){
+        //use class synchronied. To avoid the race conditions in multiThreads environment
+        //when executing the following if statement.
+<span class="fc bfc" id="L91" title="All 2 branches covered.">        if(appenderInstance == null){</span>
+<span class="fc" id="L92">            appenderInstance = new MemAppender(list,layout);</span>
+        }
+<span class="fc" id="L94">        return appenderInstance;</span>
+    }
+
+    /**
+     * get the current logs
+     * @return an unmodifiableList of the Logging Events
+     */
+    public List&lt;LoggingEvent&gt; getCurrentLogs(){
+<span class="fc" id="L102">        return Collections.unmodifiableList(this.loggingEventList);</span>
+    }
+
+    /**
+     * get the strings of events in the MemAppender
+     * @return an unmodifiableList of the Logging Events Strings
+     * formatted by layout.
+     */
+    public List&lt;String&gt; getEventStrings(){
+<span class="fc" id="L111">        LinkedList&lt;String&gt; stringLinkedList = new LinkedList&lt;&gt;();</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">        if(layout!=null){</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">            for (LoggingEvent loggingEvent : loggingEventList) {</span>
+<span class="fc" id="L114">                stringLinkedList.add(layout.format(loggingEvent));</span>
+<span class="fc" id="L115">            }</span>
+<span class="fc" id="L116">            return Collections.unmodifiableList(stringLinkedList);</span>
+        }else{
+<span class="fc" id="L118">            return Collections.unmodifiableList(stringLinkedList);</span>
+        }
+
+    }
+
+    /**
+     * print the logging events to the console
+     * using the layout and then clear the logs.
+     */
+    public void printLogs(){
+<span class="fc" id="L128">        List&lt;String&gt; eventStrings = getEventStrings();</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">        for (String eventString : eventStrings) {</span>
+<span class="fc" id="L130">            System.out.println(eventString);</span>
+<span class="fc" id="L131">        }</span>
+<span class="fc" id="L132">        this.loggingEventList.clear();</span>
+<span class="fc" id="L133">    }</span>
+
+    @Override
+    protected void append(LoggingEvent event) {
+<span class="fc bfc" id="L137" title="All 2 branches covered.">        if(this.maxSize==0) return;</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">        if(this.loggingEventList.size()&gt;=this.maxSize){</span>
+<span class="fc" id="L139">            this.loggingEventList.remove(0);</span>
+<span class="fc" id="L140">            this.discardedLogCount++;</span>
+<span class="fc" id="L141">            this.loggingEventList.add(event);</span>
+        }else{
+<span class="fc" id="L143">            this.loggingEventList.add(event);</span>
+        }
+<span class="fc" id="L145">    }</span>
+
+    /**
+     * clear the instance
+     */
+    @Override
+    public void close() {
+<span class="fc" id="L152">        this.loggingEventList.clear();</span>
+<span class="fc" id="L153">        this.loggingEventList=null;</span>
+<span class="fc" id="L154">        this.layout=null;</span>
+<span class="fc" id="L155">        this.maxSize=0;</span>
+<span class="fc" id="L156">        this.discardedLogCount=0;</span>
+<span class="fc" id="L157">        appenderInstance=null;</span>
+<span class="fc" id="L158">    }</span>
+
+    @Override
+    public boolean requiresLayout() {
+<span class="nc" id="L162">        return true;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
